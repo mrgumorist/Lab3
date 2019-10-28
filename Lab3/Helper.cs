@@ -25,7 +25,7 @@ namespace Lab3
         {
             using (FileStream fs = new FileStream("people.xml", FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, students);
+                formatter.Serialize(fs, students); 
             }
         }
     }
