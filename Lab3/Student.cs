@@ -32,7 +32,7 @@ namespace Lab3
         {
             this.Name = Name;
             this.Surname = Surname;
-            this.BirthDay = BirthDay;
+            this.BirthDay = BirthDay;  
             this.GroupNumber = GroupNumber;
             this.CourseNumber = CourseNumber;
             this.IsOnFreeStudy = IsOnFreeStudy;
