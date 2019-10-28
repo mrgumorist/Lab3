@@ -9,6 +9,7 @@ namespace Lab3
     [Serializable]
     public class Student
     {
+        public int ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime BirthDay { get; set; }
@@ -19,6 +20,7 @@ namespace Lab3
         public uint CountOfMissedLections { get; set; }
         public Student()
         {
+            this.ID = -1;
             this.Name = "Andrew";
             this.Surname = "Kek";
             this.BirthDay = new DateTime(2000, 10, 20);
@@ -28,8 +30,9 @@ namespace Lab3
             this.AvarageMark = 4.5;
             this.CountOfMissedLections = 31;
         }
-        public Student(string Name, string Surname, DateTime BirthDay, int GroupNumber, int CourseNumber, bool IsOnFreeStudy, double AvarageMark, uint CountOfMissedLections)
+        public Student(int ID,string Name, string Surname, DateTime BirthDay, int GroupNumber, int CourseNumber, bool IsOnFreeStudy, double AvarageMark, uint CountOfMissedLections)
         {
+            this.ID = ID;
             this.Name = Name;
             this.Surname = Surname;
             this.BirthDay = BirthDay;
@@ -39,5 +42,6 @@ namespace Lab3
             this.AvarageMark = AvarageMark;
             this.CountOfMissedLections = CountOfMissedLections;
         }
+       
     }
 }

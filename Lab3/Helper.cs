@@ -8,25 +8,33 @@ using System.Xml.Serialization;
 
 namespace Lab3
 {
-    public class Helper
+    public static class Helper
     {
-        public List<Student> students= new List<Student>() { new Student(), new Student()  , new Student() };
-        XmlSerializer formatter = new XmlSerializer(typeof(List<Student>));
-        public Helper()
+        public static List<Student> students = new List<Student>();
+        static XmlSerializer formatter = new XmlSerializer(typeof(List<Student>));
+
+        public static void Deserialize()
         {
             using (FileStream fs = new FileStream("people.xml", FileMode.OpenOrCreate))
             {
-                List<Student> newpeople = (List<Student>)formatter.Deserialize(fs);
-                students.Clear();
-                students.AddRange(newpeople);
+                students = (List<Student>)formatter.Deserialize(fs);
             }
         }
-        public void Serialize()
+        public static void Serialize()
         {
             using (FileStream fs = new FileStream("people.xml", FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, students); 
             }
+        }
+        public static void DeleteByNum(int num)
+        {
+            students.RemoveAt(num);
+        }
+        public static int GetID()
+        {
+            int ID = students.Count + 1;
+            return ID;
         }
     }
 }
